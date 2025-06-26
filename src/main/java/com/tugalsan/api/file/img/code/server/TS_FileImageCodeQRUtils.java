@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 public class TS_FileImageCodeQRUtils {
 
-    public static BitMatrix toMatrix(String barcodeText) {
+    private static BitMatrix toMatrix(String barcodeText) {
         return TGS_FuncMTCUtils.call(() -> {
             return new QRCodeWriter().encode(barcodeText, BarcodeFormat.QR_CODE, 200, 200);
         });

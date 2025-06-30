@@ -9,20 +9,24 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 public class TS_FileImageCodeQRUtils {
+    
+    private TS_FileImageCodeQRUtils(){
+        
+    }
 
-    private static BitMatrix toMatrix(String barcodeText) {
+    private static BitMatrix toMatrix(int width, int height, String barcodeText) {
         return TGS_FuncMTCUtils.call(() -> {
-            return new QRCodeWriter().encode(barcodeText, BarcodeFormat.QR_CODE, 200, 200);
+            return new QRCodeWriter().encode(barcodeText, BarcodeFormat.QR_CODE, width, height);
         });
     }
 
-    public static BufferedImage toQR(String barcodeText) {
-        var qrMatrix = toMatrix(barcodeText);
+    public static BufferedImage toQR(int width, int height, String barcodeText) {
+        var qrMatrix = toMatrix(width, height, barcodeText);
         return MatrixToImageWriter.toBufferedImage(qrMatrix);
     }
 
-    public static BufferedImage toQRwithLabels(String barcodeText, String lblTop, String lblBottom) {
-        var qrMatrix = toMatrix(barcodeText);
+    public static BufferedImage toQRwithLabels(int width, int height, String barcodeText, String lblTop, String lblBottom) {
+        var qrMatrix = toMatrix(width, height, barcodeText);
         var qrWidth = qrMatrix.getWidth();
         var qrHeight = qrMatrix.getHeight();
 

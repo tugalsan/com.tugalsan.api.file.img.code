@@ -1,12 +1,9 @@
 package com.tugalsan.api.file.img.code.server;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
-import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
-import java.awt.Color;
-import java.awt.image.BufferedImage;
+import module com.tugalsan.api.function;
+import module com.google.zxing;
+import module com.google.zxing.javase;
+import module java.desktop;
 
 public class TS_FileImageCodeQRUtils {
     
